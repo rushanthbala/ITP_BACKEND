@@ -24,6 +24,7 @@ app.use('/api/goals', require('./routes/goalRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/complaints', require('./routes/userComplaints'));
 app.use('/api/leave', require('./routes/userLeave'));
+app.use('/api/schedule', require('./routes/schedule'));
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {
