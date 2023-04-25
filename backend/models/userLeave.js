@@ -12,10 +12,11 @@ const userComplaints = mongoose.Schema(
       required: [true, 'Please add a body'],
     },
     adminResponse: {
-      type: Boolean,
+      type: String,
+      required: [true, 'Please add a body'],
     },
     userId: {
-      type: Boolean,
+      type: String,
       // type: Schema.Types.ObjectId, ref: 'AllUsers',
       required: [true, 'Please add a user ID']
     },

@@ -84,6 +84,27 @@ console.log(user);
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user)
 })
+const getAll = asyncHandler(async (req, res) => {
+  const users = await User.find();
+        res.status(200).json(users);
+})
+const deleteUser = async (request, response) => {
+  try{
+      await User.deleteOne({_id: request.params.id});
+      response.status(201).json("User deleted Successfully");
+  } catch (error){
+      response.status(409).json({ message: error.message});     
+  }
+}
+const getUserById = async (request, response) => {
+  try{
+      const user = await User.findById(request.params.id);
+      response.status(200).json(user);
+  }catch( error ){
+      response.status(404).json({ message: error.message })
+  }
+}
+
 
 // Generate JWT
 const generateToken = (id) => {
@@ -95,5 +116,6 @@ const generateToken = (id) => {
 module.exports = {
   registerUser,
   loginUser,
-  getMe,
+  getMe,getAll,
+  deleteUser,getUserById
 }

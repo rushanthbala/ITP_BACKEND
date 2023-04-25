@@ -16,12 +16,14 @@ const userSchema = mongoose.Schema(
       required: [true, 'Please add an email'],
     },
     status: {
-      type: Boolean,
+      type: String,
       required: [true, 'Please add a password'],
     },
     driver: {
         type: String,
-        required: [true, 'Please add a password'],
+    },
+    driverName: {
+        type: String,
     },
   },
   {
