@@ -13,7 +13,6 @@ const userComplaints = mongoose.Schema(
     },
     adminResponse: {
       type: String,
-      required: [true, 'Please add a body'],
     },
     userId: {
       type: String,
