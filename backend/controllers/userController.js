@@ -105,7 +105,18 @@ const getUserById = async (request, response) => {
   }
 }
 
+// Save data of edited user in the database
+const editUser = async (request, response) => {
+  let user = request.body;
 
+  const editUser = new User(user);
+  try{
+      await User.updateOne({_id: request.params.id}, editUser);
+      response.status(201).json(editUser);
+  } catch (error){
+      response.status(409).json({ message: error.message});     
+  }
+}
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -117,5 +128,5 @@ module.exports = {
   registerUser,
   loginUser,
   getMe,getAll,
-  deleteUser,getUserById
+  deleteUser,getUserById,editUser
 }
