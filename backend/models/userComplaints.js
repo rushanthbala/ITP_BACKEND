@@ -14,6 +14,9 @@ const userComplaints = mongoose.Schema(
     adminResponse: {
       type: String,
     },
+    date: {
+      type: String,
+    },
     userId: {
       type: Schema.Types.ObjectId, ref: 'AllUsers',
       required: [true, 'Please add a user ID']

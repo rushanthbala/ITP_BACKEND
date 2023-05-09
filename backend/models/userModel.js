@@ -23,6 +23,18 @@ const userSchema = mongoose.Schema(
     accessType: {
       type: String
     },
+    nic: {
+      type: String
+    },
+    gender: {
+      type: String
+    },
+    address: {
+      type: String
+    },
+    date:{
+      type: String
+    }
   },
   {
     timestamps: true,
